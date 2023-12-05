@@ -42,7 +42,7 @@ public class PersonController {
     }
 
     @PutMapping("/persona")
-    public void modificarPerson(@PathVariable Person person){
+    public void modificarPerson(@RequestBody Person person){
         personService.modificarPerson(person);
     }
 
