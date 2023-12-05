@@ -1,0 +1,10 @@
+com\santiago\apirest\Person\PersonController.class
+com\santiago\apirest\Person\PersonRepository.class
+com\santiago\apirest\Book\Book.class
+com\santiago\apirest\Person\PersonDTO.class
+com\santiago\apirest\Book\BookRepository.class
+com\santiago\apirest\Person\PersonService.class
+com\santiago\apirest\Book\BookController.class
+com\santiago\apirest\Person\Person.class
+com\santiago\apirest\ApirestApplication.class
+com\santiago\apirest\Book\BookService.class
