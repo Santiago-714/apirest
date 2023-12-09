@@ -3,6 +3,8 @@ package com.santiago.apirest.Book;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -12,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
+@CrossOrigin(origins = "http://localhost:4200") 
 @RestController
 public class BookController {
     
@@ -19,8 +22,8 @@ public class BookController {
     BookService bookService;
 
     @GetMapping("/libro")
-    public List <Book> listarBook(){
-        return bookService.listarBook();
+    public ResponseEntity<List<Book>> listarBook(){
+        return ResponseEntity.ok(bookService.listarBook());
     }
 
     @PostMapping("/libro")
@@ -30,8 +33,9 @@ public class BookController {
     }
 
     @DeleteMapping("/libro/{id}")
-    public void deleteBook(@PathVariable Integer id){
+    public ResponseEntity<Boolean> deleteBook(@PathVariable Integer id){
         bookService.borrarBook(id);
+        return ResponseEntity.ok(!(bookService.buscarBookPorId(id)!=null));
     }
 
     @GetMapping("/libro/{id}")
